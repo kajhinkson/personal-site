@@ -8,6 +8,11 @@ window.SITE_DATA = {
   linkedin: "https://linkedin.com/in/kylehinkson",
   github: "https://github.com/kajhinkson",
   unsplash_key: "kHd018LvEkezBayIWfXfW_uXXFtOcUZ65N955WiPTeA",
+  strava: {
+    client_id: "231222",
+    client_secret: "a668b9412fa3f6c591ece4868913d3787aa2fe3a",
+    refresh_token: "27d2c151951e058dc0cfe1fa74d4388de417986f",
+  },
   portrait: "images/portrait-formal.jpg",
   portrait_running: "images/portrait-running.jpg",
 
@@ -76,8 +81,8 @@ window.SITE_DATA = {
   },
 
   garden: {
-    note: "11 tomato plants. 3 survivors. Working theory: I overwater on Tuesdays.",
-    things: ["Tomatoes (Sungold, Black Krim)", "Garlic", "Dahlias", "An aggressive mint situation"],
+    note: "Green thumb. Can grow anything — besides a child.",
+    things: ["Tomatoes", "Greens (kale + Swiss chard)", "Herbs (green onion, basil, parsley)", "Peppers (hot and sweet)"],
   },
 
   notes: [

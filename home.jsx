@@ -119,6 +119,7 @@ function StatBox({ v, l, rule, top, last }) {
 function HomePage({ theme, setTheme }) {
   const [lb, setLb] = useState(null);
   const [photos, setPhotos] = useState(D.photos);
+  const [running, setRunning] = useState(running);
   const scopeRef = useRef(null);
   const dark = theme === "dark";
 
@@ -143,6 +144,44 @@ function HomePage({ theme, setTheme }) {
           loc: D.photos[i % D.photos.length]?.loc || "outdoors",
         }));
         setPhotos(mapped);
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const { client_id, client_secret, refresh_token } = D.strava || {};
+    if (!client_id) return;
+    fetch("https://www.strava.com/oauth/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ client_id, client_secret, refresh_token, grant_type: "refresh_token" }),
+    })
+      .then(r => r.json())
+      .then(({ access_token }) => {
+        if (!access_token) return Promise.reject();
+        const since = Math.floor((Date.now() - 30 * 24 * 60 * 60 * 1000) / 1000);
+        return fetch(`https://www.strava.com/api/v3/athlete/activities?after=${since}&per_page=100`, {
+          headers: { Authorization: `Bearer ${access_token}` },
+        }).then(r => r.json());
+      })
+      .then(acts => {
+        const runs = acts.filter(a => a.sport_type === "Run" || a.type === "Run");
+        if (!runs.length) return;
+        const totalDist = runs.reduce((s, a) => s + a.distance, 0);
+        const totalTime = runs.reduce((s, a) => s + a.moving_time, 0);
+        const totalElev = runs.reduce((s, a) => s + a.total_elevation_gain, 0);
+        const secPerKm = totalTime / (totalDist / 1000);
+        const paceMin = Math.floor(secPerKm / 60);
+        const paceSec = Math.round(secPerKm % 60).toString().padStart(2, "0");
+        setRunning(prev => ({
+          ...prev,
+          last30: {
+            km: Math.round(totalDist / 100) / 10,
+            runs: runs.length,
+            avg_pace: `${paceMin}:${paceSec}`,
+            elev: Math.round(totalElev),
+          },
+        }));
       })
       .catch(() => {});
   }, []);
@@ -196,12 +235,9 @@ function HomePage({ theme, setTheme }) {
         <section style={{ padding: "80px 48px 60px", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 64, alignItems: "start" }}>
             <div>
-              <div style={{ fontFamily: "'Caveat', cursive", fontSize: 28, color: accent, marginBottom: 8, transform: "rotate(-1deg)", display: "inline-block" }}>
-                hello —
-              </div>
               <h1 style={{
                 fontFamily: "'Inter', sans-serif", fontWeight: 500,
-                fontSize: 88, lineHeight: 0.98, letterSpacing: "-0.04em",
+                fontSize: 64, lineHeight: 1.0, letterSpacing: "-0.035em",
                 margin: "0 0 28px",
               }}>
                 Kyle Hinkson.
@@ -363,16 +399,16 @@ function HomePage({ theme, setTheme }) {
               <span style={{ fontFamily: "'Caveat', cursive", fontSize: 18, color: accent }}>last 30 days</span>
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, borderTop: `1px solid ${rule}`, borderBottom: `1px solid ${rule}` }}>
-              <StatBox v={D.running.last30.km} l="kilometres" rule={rule} />
-              <StatBox v={D.running.last30.runs} l="runs" rule={rule} last />
-              <StatBox v={D.running.last30.avg_pace} l="avg pace /km" rule={rule} top />
-              <StatBox v={D.running.last30.elev + "m"} l="climbed" rule={rule} top last />
+              <StatBox v={running.last30.km} l="kilometres" rule={rule} />
+              <StatBox v={running.last30.runs} l="runs" rule={rule} last />
+              <StatBox v={running.last30.avg_pace} l="avg pace /km" rule={rule} top />
+              <StatBox v={running.last30.elev + "m"} l="climbed" rule={rule} top last />
             </div>
             <p style={{ fontSize: 13, marginTop: 18, opacity: 0.75, lineHeight: 1.6 }}>
               <span style={{ fontFamily: "'Caveat', cursive", fontSize: 18, color: accent }}>favourite loops —</span>
             </p>
             <ul style={{ margin: "8px 0 0", padding: 0, listStyle: "none" }}>
-              {D.running.favorites.map((f, i) => (
+              {running.favorites.map((f, i) => (
                 <li key={i} style={{ padding: "8px 0", fontSize: 14, borderTop: i ? `1px dashed ${rule}` : "none", display: "flex", justifyContent: "space-between" }}>
                   <span>{f.name} <span style={{ opacity: 0.55, fontSize: 12 }}>— {f.note}</span></span>
                   <span style={{ opacity: 0.7 }}>{f.km}km</span>
@@ -380,7 +416,7 @@ function HomePage({ theme, setTheme }) {
               ))}
             </ul>
             <div style={{ marginTop: 16, fontSize: 12, opacity: 0.6 }}>
-              next → {D.running.next}
+              next → {running.next}
             </div>
           </div>
           <div>
