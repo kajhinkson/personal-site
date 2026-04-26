@@ -13,8 +13,9 @@ window.SITE_DATA = {
     client_secret: "a668b9412fa3f6c591ece4868913d3787aa2fe3a",
     refresh_token: "27d2c151951e058dc0cfe1fa74d4388de417986f",
   },
-  portrait: "images/portrait-formal.jpg",
-  portrait_running: "images/portrait-running.jpg",
+  portrait: "/images/portrait-formal.jpg",
+  portrait_running: "/images/portrait-running.jpg",
+  portrait_about: "/images/portrait-formal.jpg",
 
   bio_short: "Quantitative by training, quiet by preference.",
   bio_long: "Senior Director at RBC, where I lead quantitative analytics for credit and fraud. Fifteen years turning messy data into decisions — and a few things into production. Off-hours: long runs, longer lenses, and a garden that mostly forgives me.",

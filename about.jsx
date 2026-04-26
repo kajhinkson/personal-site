@@ -23,7 +23,7 @@ function AboutPage({ theme, setTheme }) {
 
         {/* Header */}
         <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "28px 48px", borderBottom: `1px dashed ${rule}` }}>
-          <a href="index.html" data-cursor-label="back" style={{ color: "inherit", textDecoration: "none", fontSize: 13, display: "flex", alignItems: "center", gap: 8 }}>
+          <a href="/" data-cursor-label="back" style={{ color: "inherit", textDecoration: "none", fontSize: 13, display: "flex", alignItems: "center", gap: 8 }}>
             <span style={{ fontFamily: "'Caveat', cursive", fontSize: 20, color: accent }}>←</span>
             back to home
           </a>
@@ -73,7 +73,7 @@ function AboutPage({ theme, setTheme }) {
               transform: "rotate(-1deg)",
             }}>
               <div style={{ aspectRatio: "3/4", overflow: "hidden", background: "#000" }}>
-                <img src={DA.portrait} alt="Kyle" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }} />
+                <img src={DA.portrait_about} alt="Kyle" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", display: "block" }} />
               </div>
               <div style={{ marginTop: 8, fontFamily: "'Caveat', cursive", fontSize: 18, color: dark ? "#f0e9dc" : "#231d16", textAlign: "center" }}>
                 Kyle, on a good day.
@@ -197,7 +197,7 @@ function AboutPage({ theme, setTheme }) {
             <a href={DA.github} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>github ↗</a>
             <a href={DA.unsplash} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>unsplash ↗</a>
             <a href={DA.projects[0].url} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>human leverage group ↗</a>
-            <a href="index.html" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>← home</a>
+            <a href="/" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>← home</a>
           </div>
           <div style={{ marginTop: 40, fontSize: 11, opacity: 0.4, letterSpacing: "0.06em" }}>
             © 2026 · toronto · written by hand, mostly

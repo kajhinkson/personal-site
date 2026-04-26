@@ -39,8 +39,8 @@ function Rotator({ words, accent, fontSize, fontFamily, fontStyle, fontWeight, i
 }
 
 const PORTRAITS = [
-  { src: "images/portrait-formal.jpg", label: "formal", caption: "Kyle, on a good day." },
-  { src: "images/portrait-running.jpg", label: "running", caption: "Kyle, on a better day." },
+  { src: "/images/portrait-formal.jpg", label: "formal", caption: "Kyle, on a good day." },
+  { src: "/images/portrait-running.jpg", label: "running", caption: "Kyle, on a better day." },
 ];
 
 function HeroHeadshot({ dark, accent }) {
@@ -119,7 +119,7 @@ function StatBox({ v, l, rule, top, last }) {
 function HomePage({ theme, setTheme }) {
   const [lb, setLb] = useState(null);
   const [photos, setPhotos] = useState(D.photos);
-  const [running, setRunning] = useState(running);
+  const [running, setRunning] = useState(D.running);
   const scopeRef = useRef(null);
   const dark = theme === "dark";
 
@@ -206,7 +206,7 @@ function HomePage({ theme, setTheme }) {
             <span style={{ fontSize: 12, opacity: 0.55 }}>· a personal website, mostly</span>
           </div>
           <nav style={{ display: "flex", gap: 16, fontSize: 12, opacity: 0.85, alignItems: "center" }}>
-            <a href="about.html" data-cursor-label="more about me" style={{ color: "inherit", textDecoration: "none" }}>about</a>
+            <a href="/about/" data-cursor-label="more about me" style={{ color: "inherit", textDecoration: "none" }}>about</a>
             <span style={{ opacity: 0.4 }}>·</span>
             <a href="#work" data-cursor-label="work" style={{ color: "inherit", textDecoration: "none" }}>work</a>
             <span style={{ opacity: 0.4 }}>·</span>
@@ -235,13 +235,9 @@ function HomePage({ theme, setTheme }) {
         <section style={{ padding: "80px 48px 60px", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 64, alignItems: "start" }}>
             <div>
-              <h1 style={{
-                fontFamily: "'Inter', sans-serif", fontWeight: 500,
-                fontSize: 64, lineHeight: 1.0, letterSpacing: "-0.035em",
-                margin: "0 0 28px",
-              }}>
-                Kyle Hinkson.
-              </h1>
+              <div style={{ fontFamily: "'Caveat', cursive", fontSize: 28, color: accent, marginBottom: 20, transform: "rotate(-1deg)", display: "inline-block" }}>
+                hello —
+              </div>
               <h2 style={{
                 fontFamily: "'Inter', sans-serif", fontWeight: 300,
                 fontSize: 44, lineHeight: 1.18, letterSpacing: "-0.025em",
@@ -280,12 +276,15 @@ function HomePage({ theme, setTheme }) {
                 <br />
                 mostly forgives me.
               </h2>
-              <div style={{ marginTop: 36, display: "flex", gap: 16, alignItems: "center", fontSize: 13, opacity: 0.7, flexWrap: "wrap" }}>
+              <div style={{ marginTop: 28, fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 32, letterSpacing: "-0.03em" }}>
+                Kyle Hinkson.
+              </div>
+              <div style={{ marginTop: 16, display: "flex", gap: 16, alignItems: "center", fontSize: 13, opacity: 0.7, flexWrap: "wrap" }}>
                 <span>currently — senior director at rbc</span>
                 <span>·</span>
                 <span>based in toronto</span>
                 <span>·</span>
-                <a href="about.html" style={{ color: accent, textDecoration: "none", borderBottom: `1px dashed ${accent}` }}>more about me →</a>
+                <a href="/about/" style={{ color: accent, textDecoration: "none", borderBottom: `1px dashed ${accent}` }}>more about me →</a>
               </div>
             </div>
             <div>
@@ -299,7 +298,7 @@ function HomePage({ theme, setTheme }) {
           <Title accent={accent}>where I&apos;ve been</Title>
           <p style={{ fontSize: 14, opacity: 0.7, maxWidth: 540, marginTop: -8, marginBottom: 32 }}>
             The last two roles. The full résumé{" "}
-            <a href="about.html" style={{ color: accent, borderBottom: `1px dashed ${accent}`, textDecoration: "none" }}>lives here</a>.
+            <a href="/about/" style={{ color: accent, borderBottom: `1px dashed ${accent}`, textDecoration: "none" }}>lives here</a>.
           </p>
           {D.roles.map((r, i) => (
             <div key={i} style={{
@@ -470,7 +469,7 @@ function HomePage({ theme, setTheme }) {
             <a href={D.github} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>github ↗</a>
             <a href={D.unsplash} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>unsplash ↗</a>
             <a href={D.projects[0].url} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>human leverage group ↗</a>
-            <a href="about.html" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>about →</a>
+            <a href="/about/" style={{ color: "inherit", textDecoration: "none", borderBottom: `1px dashed ${rule}` }}>about →</a>
           </div>
           <p style={{ marginTop: 28, fontSize: 13, opacity: 0.6, maxWidth: 460, marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}>
             I read everything. I reply slowly, but I do reply.
