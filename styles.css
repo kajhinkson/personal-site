@@ -1,0 +1,220 @@
+/* Kyle Hinkson — responsive layout
+   Theme-dependent colors (bg, fg, accent) stay in inline React styles.
+   This file owns layout, spacing, and typography scaling only. */
+
+/* ─── Section padding ─────────────────────────────────────────── */
+.site-section {
+  padding: clamp(24px,5vw,32px) clamp(16px,5vw,48px) clamp(32px,5vw,64px);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hero-section {
+  padding: clamp(40px,8vw,80px) clamp(16px,5vw,48px) clamp(24px,5vw,60px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.photo-section {
+  padding: clamp(24px,5vw,32px) clamp(16px,5vw,48px) clamp(32px,5vw,64px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Header ──────────────────────────────────────────────────── */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(16px,4vw,28px) clamp(16px,5vw,48px);
+}
+.site-nav {
+  display: flex;
+  gap: clamp(8px,2vw,16px);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ─── Hero ────────────────────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px,5vw,64px);
+  align-items: start;
+}
+@media (min-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr 280px; }
+}
+
+.hero-h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(26px,6vw,44px);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+.hero-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px,5vw,32px);
+  letter-spacing: -0.03em;
+  margin-top: clamp(16px,4vw,28px);
+}
+
+/* Portrait card — full width on mobile, constrained on desktop */
+.hero-portrait {
+  width: 100%;
+  max-width: 320px;
+}
+@media (min-width: 768px) {
+  .hero-portrait { max-width: none; }
+}
+
+/* ─── Work section ────────────────────────────────────────────── */
+.work-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  padding: 20px 0;
+}
+@media (min-width: 600px) {
+  .work-row {
+    grid-template-columns: 110px 1fr;
+    gap: 20px;
+    align-items: baseline;
+  }
+}
+@media (min-width: 900px) {
+  .work-row {
+    grid-template-columns: 140px 1fr 320px;
+    gap: 28px;
+  }
+}
+/* Blurb hidden as third col on mobile — shown inline below title */
+.work-blurb-col { font-size: 13px; line-height: 1.55; opacity: 0.85; }
+@media (max-width: 599px) {
+  .work-blurb-col { opacity: 0.7; margin-top: 4px; }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .work-blurb-col { grid-column: 2; }
+}
+
+/* ─── Photo grid ──────────────────────────────────────────────── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(12px,3vw,18px);
+}
+@media (min-width: 560px) {
+  .photo-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (min-width: 860px) {
+  .photo-grid { grid-template-columns: repeat(3,1fr); }
+}
+
+/* ─── Two-column (run+garden, off-clock+speaking) ─────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px,5vw,56px);
+}
+@media (min-width: 700px) {
+  .two-col { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─── Notes rows ──────────────────────────────────────────────── */
+.notes-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  align-items: baseline;
+}
+@media (min-width: 640px) {
+  .notes-row { grid-template-columns: 120px 1fr auto; }
+}
+.notes-soon { display: none; }
+@media (min-width: 640px) {
+  .notes-soon { display: block; }
+}
+
+/* ─── Lightbox ────────────────────────────────────────────────── */
+.lightbox-inner {
+  padding: clamp(16px,4vw,40px) clamp(16px,5vw,60px) clamp(16px,3vw,24px);
+}
+.lightbox-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  opacity: 0.7;
+}
+
+/* ─── About: hero ─────────────────────────────────────────────── */
+.about-h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(32px,8vw,64px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  margin: 0;
+  max-width: 880px;
+}
+
+/* ─── About: portrait + fact sheet ───────────────────────────── */
+.portrait-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (min-width: 700px) {
+  .portrait-grid { grid-template-columns: 280px 1fr; gap: 48px; }
+}
+
+/* ─── About: fact sheet rows ──────────────────────────────────── */
+.fact-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+}
+@media (min-width: 500px) {
+  .fact-row { grid-template-columns: 180px 1fr; gap: 16px; }
+}
+
+/* ─── About: operating principles ────────────────────────────── */
+.principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) {
+  .principles-grid { grid-template-columns: 1fr 1fr; }
+}
+.principle-cell {
+  padding: 24px 0;
+}
+@media (min-width: 700px) {
+  .principle-cell:nth-child(odd)  { padding-right: 28px; }
+  .principle-cell:nth-child(even) { padding-left: 28px; }
+}
+
+/* ─── About: full timeline ────────────────────────────────────── */
+.timeline-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 16px 0;
+}
+@media (min-width: 600px) {
+  .timeline-row { grid-template-columns: 110px 1fr; gap: 16px; align-items: baseline; }
+}
+@media (min-width: 860px) {
+  .timeline-row { grid-template-columns: 140px 200px 1fr; gap: 24px; }
+}
+.timeline-blurb { font-size: 13px; line-height: 1.55; opacity: 0.85; }
+@media (min-width: 600px) and (max-width: 859px) {
+  .timeline-blurb { grid-column: 2; }
+}

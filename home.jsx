@@ -200,12 +200,12 @@ function HomePage({ theme, setTheme }) {
       <div style={{ position: "relative", zIndex: 2 }}>
 
         {/* Header */}
-        <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "28px 48px", borderBottom: `1px dashed ${rule}` }}>
+        <header className="site-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px dashed ${rule}` }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <span style={{ fontSize: 15, fontWeight: 500, letterSpacing: "-0.01em" }}>Kyle Hinkson</span>
             <span style={{ fontSize: 12, opacity: 0.55 }}>· a personal website, mostly</span>
           </div>
-          <nav style={{ display: "flex", gap: 16, fontSize: 12, opacity: 0.85, alignItems: "center" }}>
+          <nav className="site-nav">
             <a href="/about/" data-cursor-label="more about me" style={{ color: "inherit", textDecoration: "none" }}>about</a>
             <span style={{ opacity: 0.4 }}>·</span>
             <a href="#work" data-cursor-label="work" style={{ color: "inherit", textDecoration: "none" }}>work</a>
@@ -232,17 +232,13 @@ function HomePage({ theme, setTheme }) {
         </header>
 
         {/* Hero */}
-        <section style={{ padding: "80px 48px 60px", maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 64, alignItems: "start" }}>
+        <section className="hero-section">
+          <div className="hero-grid">
             <div>
               <div style={{ fontFamily: "'Caveat', cursive", fontSize: 28, color: accent, marginBottom: 20, transform: "rotate(-1deg)", display: "inline-block" }}>
                 hello —
               </div>
-              <h2 style={{
-                fontFamily: "'Inter', sans-serif", fontWeight: 300,
-                fontSize: 44, lineHeight: 1.18, letterSpacing: "-0.025em",
-                margin: 0,
-              }}>
+              <h2 className="hero-h2" style={{ color: fg }}>
                 I work in{" "}
                 <Rotator
                   words={D.hero_phrases.a}
@@ -276,7 +272,7 @@ function HomePage({ theme, setTheme }) {
                 <br />
                 mostly forgives me.
               </h2>
-              <div style={{ marginTop: 28, fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 32, letterSpacing: "-0.03em" }}>
+              <div className="hero-name">
                 Kyle Hinkson.
               </div>
               <div style={{ marginTop: 16, display: "flex", gap: 16, alignItems: "center", fontSize: 13, opacity: 0.7, flexWrap: "wrap" }}>
@@ -294,18 +290,14 @@ function HomePage({ theme, setTheme }) {
         </section>
 
         {/* Work */}
-        <section id="work" style={{ padding: "32px 48px 64px", maxWidth: 1100, margin: "0 auto" }}>
+        <section id="work" className="site-section">
           <Title accent={accent}>where I&apos;ve been</Title>
           <p style={{ fontSize: 14, opacity: 0.7, maxWidth: 540, marginTop: -8, marginBottom: 32 }}>
             The last two roles. The full résumé{" "}
             <a href="/about/" style={{ color: accent, borderBottom: `1px dashed ${accent}`, textDecoration: "none" }}>lives here</a>.
           </p>
           {D.roles.map((r, i) => (
-            <div key={i} style={{
-              display: "grid", gridTemplateColumns: "140px 1fr 320px", gap: 28,
-              padding: "26px 0", borderTop: `1px solid ${rule}`,
-              alignItems: "baseline",
-            }}>
+            <div key={i} className="work-row" style={{ borderTop: `1px solid ${rule}` }}>
               <div style={{ fontSize: 13, opacity: 0.6 }}>{r.years}</div>
               <div>
                 <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em" }}>
@@ -314,7 +306,7 @@ function HomePage({ theme, setTheme }) {
                 </div>
                 <div style={{ fontSize: 14, opacity: 0.7, marginTop: 4 }}>{r.org}</div>
               </div>
-              <div style={{ fontSize: 13, lineHeight: 1.55, opacity: 0.85 }}>{r.blurb}</div>
+              <div className="work-blurb-col">{r.blurb}</div>
             </div>
           ))}
 
@@ -350,7 +342,7 @@ function HomePage({ theme, setTheme }) {
         </section>
 
         {/* Photographs */}
-        <section id="photo" style={{ padding: "32px 48px 64px", maxWidth: 1200, margin: "0 auto" }}>
+        <section id="photo" className="photo-section">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 28 }}>
             <Title accent={accent}>photographs</Title>
             <a href={D.unsplash} target="_blank" rel="noreferrer" style={{ fontSize: 12, opacity: 0.7, color: "inherit", borderBottom: `1px dashed ${accent}`, textDecoration: "none" }}>
@@ -360,7 +352,7 @@ function HomePage({ theme, setTheme }) {
           <p style={{ fontSize: 14, opacity: 0.7, maxWidth: 540, marginTop: -16, marginBottom: 32 }}>
             Mostly when I&apos;m out for a long run and stop, briefly, to notice something.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
+          <div className="photo-grid">
             {photos.map((p, i) => {
               const tilts = [-0.8, 0.6, -0.4, 0.5, -0.3, 0.7, -0.6, 0.3, -0.5];
               return (
@@ -378,7 +370,7 @@ function HomePage({ theme, setTheme }) {
                     boxShadow: dark ? "0 8px 24px rgba(0,0,0,0.35)" : "0 8px 24px rgba(35,29,22,0.12)",
                   }}>
                     <div style={{ aspectRatio: "3/2", overflow: "hidden", background: "#000" }}>
-                      <img src={p.url} alt={p.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                      <img src={p.url} alt={p.title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                     </div>
                     <figcaption style={{ marginTop: 8, fontFamily: "'Caveat', cursive", fontSize: 18, color: dark ? "#f0e9dc" : "#231d16" }}>
                       {p.title}, {p.place}, {p.year}
@@ -391,7 +383,7 @@ function HomePage({ theme, setTheme }) {
         </section>
 
         {/* Running + Garden */}
-        <section id="run" style={{ padding: "32px 48px 64px", maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56 }}>
+        <section id="run" className="two-col site-section">
           <div>
             <Title accent={accent}>on running</Title>
             <p style={{ fontSize: 14, opacity: 0.7, marginTop: -8, marginBottom: 24 }}>
@@ -438,21 +430,17 @@ function HomePage({ theme, setTheme }) {
         </section>
 
         {/* Notes */}
-        <section id="notes" style={{ padding: "32px 48px 64px", maxWidth: 1100, margin: "0 auto" }}>
+        <section id="notes" className="site-section">
           <Title accent={accent}>notes, occasionally</Title>
           <div style={{ marginTop: 24 }}>
             {D.notes.map((n, i) => (
-              <div key={i} style={{
-                display: "grid", gridTemplateColumns: "120px 1fr auto", gap: 24,
-                padding: "18px 0", borderTop: `1px dashed ${rule}`,
-                alignItems: "baseline",
-              }}>
+              <div key={i} className="notes-row" style={{ borderTop: `1px dashed ${rule}` }}>
                 <span style={{ fontSize: 12, opacity: 0.55 }}>{n.date}</span>
                 <span>
                   <span style={{ fontSize: 19, letterSpacing: "-0.01em", fontWeight: 500 }}>{n.title}</span>
                   <span style={{ display: "block", fontSize: 13, opacity: 0.65, marginTop: 4, lineHeight: 1.5 }}>{n.kicker}</span>
                 </span>
-                <span style={{ fontFamily: "'Caveat', cursive", color: accent, fontSize: 15, opacity: 0.45 }}>soon</span>
+                <span className="notes-soon" style={{ fontFamily: "'Caveat', cursive", color: accent, fontSize: 15, opacity: 0.45 }}>soon</span>
               </div>
             ))}
           </div>

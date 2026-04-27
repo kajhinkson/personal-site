@@ -19,10 +19,11 @@ function Lightbox({ photo, onClose, onPrev, onNext, theme }) {
   return (
     <div
       onClick={onClose}
+      className="lightbox-inner"
       style={{
         position: "fixed", inset: 0, zIndex: 9999,
         background: dark ? "rgba(8,9,12,0.95)" : "rgba(20,18,15,0.92)",
-        display: "grid", gridTemplateRows: "1fr auto", padding: "40px 60px 24px",
+        display: "grid", gridTemplateRows: "1fr auto",
         cursor: "zoom-out",
       }}
     >
@@ -39,7 +40,7 @@ function Lightbox({ photo, onClose, onPrev, onNext, theme }) {
           <div style={{ fontSize: 17, letterSpacing: "-0.01em" }}>{photo.title}</div>
           <div style={{ opacity: 0.6, marginTop: 2 }}>{photo.place} · {photo.year}</div>
         </div>
-        <div style={{ display: "flex", gap: 18, opacity: 0.7 }}>
+        <div className="lightbox-btns">
           <button onClick={(e) => { e.stopPropagation(); onPrev(); }} style={lbBtn}>← prev</button>
           <button onClick={(e) => { e.stopPropagation(); onNext(); }} style={lbBtn}>next →</button>
           <button onClick={onClose} style={lbBtn}>close (esc)</button>

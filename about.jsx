@@ -22,7 +22,7 @@ function AboutPage({ theme, setTheme }) {
       <div style={{ position: "relative", zIndex: 2 }}>
 
         {/* Header */}
-        <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "28px 48px", borderBottom: `1px dashed ${rule}` }}>
+        <header className="site-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: `1px dashed ${rule}` }}>
           <a href="/" data-cursor-label="back" style={{ color: "inherit", textDecoration: "none", fontSize: 13, display: "flex", alignItems: "center", gap: 8 }}>
             <span style={{ fontFamily: "'Caveat', cursive", fontSize: 20, color: accent }}>←</span>
             back to home
@@ -49,11 +49,11 @@ function AboutPage({ theme, setTheme }) {
         </header>
 
         {/* Hero */}
-        <section style={{ maxWidth: 1100, margin: "0 auto", padding: "80px 48px 48px" }}>
+        <section className="hero-section">
           <div style={{ fontFamily: "'Caveat', cursive", fontSize: 28, color: accent, marginBottom: 12 }}>
             a longer answer —
           </div>
-          <h1 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 64, lineHeight: 1.04, letterSpacing: "-0.035em", margin: 0, maxWidth: 880 }}>
+          <h1 className="about-h1">
             More about{" "}
             <em style={{ fontWeight: 300, color: accent, fontStyle: "normal", fontFamily: "'Caveat', cursive", fontSize: 76 }}>me</em>
             , in the order I&apos;d actually tell you.
@@ -64,7 +64,8 @@ function AboutPage({ theme, setTheme }) {
         </section>
 
         {/* Portrait + fact sheet */}
-        <section style={{ maxWidth: 1100, margin: "0 auto", padding: "16px 48px 64px", display: "grid", gridTemplateColumns: "320px 1fr", gap: 48, alignItems: "start" }}>
+        <section className="site-section">
+          <div className="portrait-grid">
           <div>
             <div style={{
               background: dark ? "#231d16" : "#fff",
@@ -84,17 +85,18 @@ function AboutPage({ theme, setTheme }) {
             <h3 style={{ fontFamily: "'Caveat', cursive", fontSize: 28, color: accent, margin: "0 0 14px" }}>fact sheet</h3>
             <dl style={{ margin: 0 }}>
               {DA.about.fact_sheet.map(([k, v], i) => (
-                <div key={i} style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 16, padding: "12px 0", borderTop: `1px dashed ${rule}` }}>
+                <div key={i} className="fact-row" style={{ borderTop: `1px dashed ${rule}` }}>
                   <dt style={{ fontSize: 12, opacity: 0.6, letterSpacing: "0.04em", textTransform: "uppercase" }}>{k}</dt>
                   <dd style={{ margin: 0, fontSize: 15, letterSpacing: "-0.005em" }}>{v}</dd>
                 </div>
               ))}
             </dl>
           </div>
+          </div>
         </section>
 
         {/* Operating principles */}
-        <section style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 48px 64px" }}>
+        <section className="site-section">
           <h2 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 36, letterSpacing: "-0.025em", margin: "0 0 12px" }}>
             how I work
             <span style={{ display: "inline-block", width: 40, height: 1, background: accent, verticalAlign: "middle", marginLeft: 14 }} />
@@ -102,13 +104,11 @@ function AboutPage({ theme, setTheme }) {
           <p style={{ fontSize: 14, opacity: 0.7, maxWidth: 540, marginTop: 0, marginBottom: 28 }}>
             <span style={{ fontFamily: "'Caveat', cursive", fontSize: 18, color: accent }}>opinions, slowly held</span>
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0 }}>
+          <div className="principles-grid">
             {DA.about.operating_principles.map((p, i) => (
-              <div key={i} style={{
-                padding: "24px 28px 24px 0",
+              <div key={i} className="principle-cell" style={{
                 borderTop: `1px solid ${rule}`,
                 borderRight: i % 2 === 0 ? `1px solid ${rule}` : "none",
-                paddingLeft: i % 2 === 1 ? 28 : 0,
               }}>
                 <div style={{ fontFamily: "'Caveat', cursive", fontSize: 22, color: accent, marginBottom: 6 }}>
                   {String(i + 1).padStart(2, "0")}.
@@ -123,7 +123,7 @@ function AboutPage({ theme, setTheme }) {
         </section>
 
         {/* Full timeline */}
-        <section style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 48px 64px" }}>
+        <section className="site-section">
           <h2 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 36, letterSpacing: "-0.025em", margin: "0 0 12px" }}>
             full timeline
             <span style={{ display: "inline-block", width: 40, height: 1, background: accent, verticalAlign: "middle", marginLeft: 14 }} />
@@ -132,23 +132,19 @@ function AboutPage({ theme, setTheme }) {
             <span style={{ fontFamily: "'Caveat', cursive", fontSize: 18, color: accent }}>the whole résumé, in one place</span>
           </p>
           {DA.timeline.map((r, i) => (
-            <div key={i} style={{
-              display: "grid", gridTemplateColumns: "140px 220px 1fr", gap: 24,
-              padding: "20px 0", borderTop: `1px solid ${rule}`,
-              alignItems: "baseline",
-            }}>
+            <div key={i} className="timeline-row" style={{ borderTop: `1px solid ${rule}` }}>
               <div style={{ fontSize: 12, opacity: 0.6 }}>{r.y}</div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 500, letterSpacing: "-0.015em" }}>{r.t}</div>
                 <div style={{ fontSize: 13, opacity: 0.65, marginTop: 2 }}>{r.o}</div>
               </div>
-              <div style={{ fontSize: 13, lineHeight: 1.55, opacity: 0.85 }}>{r.d}</div>
+              <div className="timeline-blurb">{r.d}</div>
             </div>
           ))}
         </section>
 
         {/* Off the clock + speaking */}
-        <section style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 48px 64px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48 }}>
+        <section className="two-col site-section">
           <div>
             <h2 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 32, letterSpacing: "-0.025em", margin: "0 0 14px" }}>
               off the clock
