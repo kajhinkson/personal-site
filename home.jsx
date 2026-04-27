@@ -131,7 +131,7 @@ function HomePage({ theme, setTheme }) {
   useEffect(() => {
     const key = D.unsplash_key;
     if (!key || key === "YOUR_UNSPLASH_ACCESS_KEY") return;
-    fetch(`https://api.unsplash.com/users/whereiskylenow/photos?per_page=12&order_by=latest&client_id=${key}`)
+    fetch(`https://api.unsplash.com/users/whereiskylenow/photos?per_page=9&order_by=latest&client_id=${key}`)
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => {
         const mapped = data.map((p, i) => ({

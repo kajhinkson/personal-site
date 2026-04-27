@@ -27,12 +27,12 @@ function Lightbox({ photo, onClose, onPrev, onNext, theme }) {
         cursor: "zoom-out",
       }}
     >
-      <div style={{ display: "grid", placeItems: "center", overflow: "hidden" }}>
+      <div style={{ display: "grid", placeItems: "center", overflow: "hidden", width: "100%", height: "100%" }}>
         <img
           src={photo.url}
           alt={photo.title}
           onClick={(e) => e.stopPropagation()}
-          style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain", boxShadow: "0 30px 80px rgba(0,0,0,0.5)" }}
+          style={{ width: "100%", height: "100%", objectFit: "contain", boxShadow: "0 30px 80px rgba(0,0,0,0.5)" }}
         />
       </div>
       <div style={{ color: "#e9e6df", display: "flex", justifyContent: "space-between", alignItems: "baseline", paddingTop: 16, fontFamily: "Inter, sans-serif", fontSize: 13 }}>

@@ -78,7 +78,7 @@ window.SITE_DATA = {
       { name: "Lakeshore east", km: 18.0, note: "best at sunrise, worst in February" },
       { name: "High Park figure-8", km: 8.6, note: "warm up before a long one" },
     ],
-    next: "Toronto Waterfront Marathon — Oct 2026",
+    next: "Toronto Half-Marathon — May 2026",
   },
 
   garden: {
