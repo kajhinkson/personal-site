@@ -47,7 +47,7 @@ window.SITE_DATA = {
     {
       name: "Human Leverage Group",
       url: "https://www.humanleveragegroup.com/",
-      blurb: "Building the infrastructure for human contribution in the age of AI..",
+      blurb: "Building the infrastructure for human contribution in the age of AI.",
       tag: "founder · ongoing",
     },
   ],
@@ -83,7 +83,7 @@ window.SITE_DATA = {
 
   garden: {
     note: "Green thumb. Can grow anything — besides a child.",
-    things: ["Tomatoes", "Greens (kale + Swiss chard)", "Herbs (green onion, basil, parsley)", "Peppers (hot and sweet)"],
+    things: ["Tomatoes (mystery seeds)", "Greens (kale, swiss chard)", "Herbs (green onion, basil, parsley)", "Peppers (hot, sweet)"],
   },
 
   notes: [
@@ -96,12 +96,12 @@ window.SITE_DATA = {
   about: {
     long_intro: "Over the past 15 years, I have been passionate about working on the hardest problems, building great teams, and having fun while doing both. I lead Analytics, Insights & Strategic Enablement for a 1,600+ person Fraud and Collections group at RBC. We keep the system running so that our teams can make real-time decisions that keep clients safe and minimize risk for the country’s largest bank. Before this, I built and ran the Data & AI function for RBCx (RBC Ventures), managing a portfolio of 20+ growth-stage businesses inside the bank. My focus was on scaling user growth and profitability while leveraging enterprise data to drive value for the core Personal & Commercial Banking business.",
     operating_principles: [
-      { t: "Talent compounds", d: "We are greater than the sum of our parts. I focus on making $1 + 1 = 11 by hiring for taste and trajectory. Systems are built by people, and while leverage is powerful, talent that scales together compounds even harder." },
+      { t: "Talent compounds", d: "We are greater than the sum of our parts. I focus on making 1 + 1 = 11 by hiring for taste and trajectory. Systems are built by people, and while leverage is powerful, talent that scales together compounds even harder." },
       { t: "The boring parts win", d: "Infrastructure, monitoring, and reporting aren’t flashy, but they are how we answer the \"why.\" High-performance systems aren’t built on glamour; they are built on a fanatic obsession with the \"boring\" foundations that make magic repeatable and resilient." },
       { t: "Decisions over dashboards", d: "Before building to a spec, we have to answer: What is the actual question we are trying to solve? A model that nobody acts on is just a hobby. Value is created at the \"seam\" between a data point and a high-stakes decision." },
       { t: "Latency is a strategy", d: "The interesting question isn’t just \"can we detect it,\" it’s \"how fast?\" Speed to insight is what allows us to shape the future rather than just reporting on the past. In complex systems, milliseconds are a competitive advantage that changes the product itself." },
     ],
-    interests: ["Long-distance running", "Photography (mostly landscape, mostly walking)", "Gardening (poorly, persistently)", "Travel & nature", "Books that aren’t about work"],
+    interests: ["Long-distance running", "Photography (mostly travel & street)", "Gardening (year round)", "Travel & nature", "Podcasts about anything"],
     background: "Bachelor of Mathematics, Honours Statistics (CS minor), University of Waterloo. Earlier life: Bell Canada, TD, then a long run at RBC.",
     speaking: "Occasional speaker on AI, fraud strategy, and applied ML in regulated industries. Available for advisory, board observer roles, and the occasional fireside.",
     fact_sheet: [
