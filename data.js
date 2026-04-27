@@ -32,14 +32,14 @@ window.SITE_DATA = {
       title: "Senior Director, Quantitative Analytics & Monitoring",
       group: "Credit & Fraud Management",
       years: "2025 — Now",
-      blurb: "Directing near real-time fraud insights. Tracking $150MM of Fraud AI contribution toward a $1B enterprise target by 2028.",
+      blurb: "Analytics, Insights & Strategic Enablement for 1,600+ Fraud & Collections Operations group. Leading AI benefits measurement toward $1B Investor Day target.",
       current: true,
     },
     {
       org: "RBCx / RBC Ventures",
       title: "Senior Director, Head of Data & Analytics",
       years: "2020 — 2025",
-      blurb: "Held P&L for data, analytics and AI across 20+ ventures. Drove a 1000% increase in revenue & NIBT over two years. Led the technical data audit for the $13.5B HSBC Canada acquisition.",
+      blurb: "Scaled Data & AI for a 20+ venture portfolio, driving significant gains in user growth, conversion, and profitability. Leveraged RBC enterprise data to bridge the gap between venture innovation and core banking value.",
     },
   ],
 
