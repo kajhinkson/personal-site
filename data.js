@@ -32,7 +32,7 @@ window.SITE_DATA = {
       title: "Senior Director, Quantitative Analytics & Monitoring",
       group: "Credit & Fraud Management",
       years: "2025 — Now",
-      blurb: "Analytics, Insights & Strategic Enablement for 1,600+ Fraud & Collections Operations group. Leading AI benefits measurement toward $1B Investor Day target.",
+      blurb: "Analytics, Insights & Strategic Enablement for 1,600+ person Fraud & Collections Operations group. Leading AI benefits measurement toward $1B Investor Day target.",
       current: true,
     },
     {
@@ -47,15 +47,15 @@ window.SITE_DATA = {
     {
       name: "Human Leverage Group",
       url: "https://www.humanleveragegroup.com/",
-      blurb: "An advisory practice on the human side of leverage — coaching, advising, and helping leaders find more time for the work that compounds.",
-      tag: "advisory · ongoing",
+      blurb: "Building the infrastructure for human contribution in the age of AI..",
+      tag: "founder · ongoing",
     },
   ],
 
   award: {
-    title: "RBC Performance Conference Award",
+    title: "RBC Performance Conference Award (Top 1% of employees)",
     year: 2024,
-    note: "Top 1% of employees — for technical data leadership and migration strategy in the $13.5B HSBC Acquisition.",
+    note: "Technical data leadership and migration strategy in the $13.5B HSBC Acquisition.",
   },
 
   photos: [
